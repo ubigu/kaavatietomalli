@@ -196,7 +196,7 @@ Aikavälejä kuvaavat attribuutit voidaan antaa joko sekä alku- että loppuajan
 {% include common/clause_end.html %}
 
 {% include common/clause_start.html type="req" id="laatu/vaat-alueidenkäyttöasia-paallekkaiset-aluerajaukset" %}
-Kaavatietovarastossa ei tule olla kahta [Alueidenkäyttöasia]()-luokan objektia, joiden 
+Kaavatietovarastossa ei tule olla kahta [Alueidenkäyttöasia]()-luokan objektia, jos
 * [Kaava](dokumentaatio/#kaava)-luokan ```laji```-attribuutin arvot ovat samat,
 * [Kaavapäätös](dokumentaatio/#kaavapäätös)-luokan ```voimassaoloAika```-attribuutin arvojen kuvaamat aikavälit ovat sisäkkäisiä tai lomittain, ja
 * ```aluerajaus```-attribuuttien kuvaavat geometriat leikaavat toisiaan tai ovat sisäkkäisiä.
@@ -226,7 +226,7 @@ Kaavatietovarastossa ei tule olla kahta [Alueidenkäyttöasia]()-luokan objektia
 
 ### Kaava
 {% include common/clause_start.html type="req" id="laatu/vaat-kaava-paallekkaiset-aluerajaukset" %}
-Kaavatietovarastossa ei tule olla kahta [Kaava](dokumentaatio/#kaava)-luokan objektia, joiden 
+Kaavatietovarastossa ei tule olla kahta [Kaava](dokumentaatio/#kaava)-luokan objektia, jos 
 * ```laji```-attribuutin arvot ovat samat,
 * [Kaavapäätös](dokumentaatio/#kaavapäätös)-luokan ```voimassaoloAika```-attribuutin arvojen kuvaamat aikavälit ovat sisäkkäisiä tai lomittain, ja
 * ```aluerajaus```-attribuuttien kuvaavat geometriat leikaavat toisiaan tai ovat sisäkkäisiä.
