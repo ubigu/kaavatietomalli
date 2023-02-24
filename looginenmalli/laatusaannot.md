@@ -156,7 +156,7 @@ Aluemaisten geometrioiden kiertosuuntien tulee noudattaa ISO 19107 -standardin m
 #### Paikkatietokohteiden geometrioiden sisäkkäisyys ja päällekkäisyys
 
 {% include common/clause_start.html type="req" id="laatu/vaat-kaavakohteet-kaavan-sisalla" %}
-[Kaava](dokumentaatio/#kaava)-luokan objektin ```aluerajaus```-attribuutin ilmaiseman kaava-alueen tulee pitää sisällään kaikki kaavaan sisältyvien [AbstraktiKaavakohde](dokumentaatio/#abstraktikaavakohde)-luokan objektien geometriat, poislukien sellaiset [Kaavakohde](dokumentaatio/#kaavakohde)-luokan objektit, joiden kaikki kaavamääräykset ja kaavasuositukset ovat kumottuja.
+[Kaava](dokumentaatio/#kaava)-luokan objektin ```aluerajaus```-attribuutin ilmaiseman kaava-alueen tulee pitää sisällään kaikki kaavaan sisältyvien [RakennetunYmpäristönKohde](dokumentaatio/#abstraktikaavakohde)-luokan objektien geometriat, poislukien sellaiset [Kaavakohde](dokumentaatio/#kaavakohde)-luokan objektit, joiden kaikki kaavamääräykset ja kaavasuositukset ovat kumottuja.
 {% include common/clause_end.html %}
 
 
@@ -182,14 +182,41 @@ Aikavälejä kuvaavat attribuutit voidaan antaa joko sekä alku- että loppuajan
 
 ## Luokkakohtaiset säännöt
 
-### AbstraktiMaankayttoasia
-{% include common/clause_start.html type="req" id="laatu/vaat-mkp-aluerajaus-geometria" %}
-[AbstraktiMaankayttoasia](dokumentaatio/#abstraktimaankayttoasia)-luokan objektien ```aluerajaus```-attribuutin arvon tulee kuvata kaavan suunnittelualue joko [aluemaisena geometriana](#laatu-vaat-geom-2d-alue-maar) tai [monialueena](#laatu-vaat-geom-kokoelmat-maar).
+### Alueidenkäyttöasia
+{% include common/clause_start.html type="req" id="laatu/vaat-alueidenkäyttöasia-aluerajaus-geometria" %}
+[Alueidenkäyttöasia]()-luokan objektien ```aluerajaus```-attribuutin arvon tulee kuvata kaavan suunnittelualue joko [aluemaisena geometriana](#laatu-vaat-geom-2d-alue-maar) tai [monialueena](#laatu-vaat-geom-kokoelmat-maar).
+{% include common/clause_end.html %}
+
+{% include common/clause_start.html type="req" id="laatu/vaat-alueidenkäyttöasia-aluerajaus-annettava" %}
+ [Alueidenkäyttöasia]()-luokan objektilla, jonka [elinkaatila](http://uri.suomi.fi/codelist/rytj/RY_KaavanElinkaaritila) on virelletullut tai myöhempi (koodi 02, 03, 04, 05, 06, 07, 08, 09, 10, 11, 12 tai 13) tulee olla ei-tyhjä ```aluerajaus```-attribuutin arvo. 
+{% include common/clause_end.html %}
+
+{% include common/clause_start.html type="req" id="laatu/vaat-alueidenkäyttöasia-virelletuloaika-annettava" %}
+ [Alueidenkäyttöasia]()-luokan objektilla, jonka [elinkaatila](http://uri.suomi.fi/codelist/rytj/RY_KaavanElinkaaritila) on virelletullut tai myöhempi (koodi 02, 03, 04, 05, 06, 07, 08, 09, 10, 11, 12 tai 13), tulee olla ei-tyhjä ```virelletuloAika```-attribuutin arvo. 
+{% include common/clause_end.html %}
+
+{% include common/clause_start.html type="req" id="laatu/vaat-alueidenkäyttöasia-paallekkaiset-aluerajaukset" %}
+Kaavatietovarastossa ei tule olla kahta [Alueidenkäyttöasia]()-luokan objektia, joiden 
+* [Kaava](dokumentaatio/#kaava)-luokan ```laji```-attribuutin arvot ovat samat,
+* [Kaavapäätös](dokumentaatio/#kaavapäätös)-luokan ```voimassaoloAika```-attribuutin arvojen kuvaamat aikavälit ovat sisäkkäisiä tai lomittain, ja
+* ```aluerajaus```-attribuuttien kuvaavat geometriat leikaavat toisiaan tai ovat sisäkkäisiä.
+{% include common/clause_end.html %}
+
+{% include common/clause_start.html type="req" id="laatu/vaat-alueidenkäyttöasia-hyvaksymistuloaika-annettava" %}
+ [Alueidenkäyttöasia]()-luokan objektilla, jonka [elinkaatila](http://uri.suomi.fi/codelist/rytj/RY_KaavanElinkaaritila) on hyväksytty kaava tai myöhempi (koodi 06, 07, 08, 09, 10, 11, 12 tai 13), tulee olla [Kaavapäätös](dokumentaatio/#kaavapäätös)-luokan objektilla ei-tyhjä ```päätöspäivämäärä```-, ```päätöksenantopäivämäärä```- ja ```lainvoimaisuuspäivämäärä```-attribuutin arvo.
+{% include common/clause_end.html %}
+
+{% include common/clause_start.html type="req" id="laatu/vaat-alueidenkäyttöasia-voimassaolo-alku" %}
+ [Alueidenkäyttöasia]()-luokan objektilla, jonka [elinkaatila](http://uri.suomi.fi/codelist/rytj/RY_KaavanElinkaaritila) on osittain voimassa, voimassa, tai niitä myöhempi (koodi 10, 11, 12 tai 13) tulee olla [Kaavapäätös](dokumentaatio/#kaavapäätös)-luokan objektilla ei-tyhjä ```voimassaAika```-attribuutin alkuajanhetken arvo.
+{% include common/clause_end.html %}
+
+{% include common/clause_start.html type="req" id="laatu/vaat-alueidenkäyttöasia-voimassaolo-loppu" %}
+ [Alueidenkäyttöasia]()-luokan objektilla, jonka [elinkaatila](http://uri.suomi.fi/codelist/rytj/RY_KaavanElinkaaritila) on  kumottu tai kumoutunut (koodi 12 tai 13), tulee olla annettu [Kaavapäätös](dokumentaatio/#kaavapäätös)-luokan objektilla ei-tyhjä ```voimassaAika```-attribuutin loppuajanhetken arvo.
 {% include common/clause_end.html %}
 
 ### Lahtotietoaineisto
 {% include common/clause_start.html type="req" id="laatu/vaat-lahtotietoaineisto-aluerajaus-geometria" %}
-[Lahtotietoaineito](dokumentaatio/#lahtotietoaineisto)-luokan objektien ```aluerajaus```-attribuutin arvon tulee kuvata aineiston maantieteellinen kattavuus joko [aluemaisena geometriana](#laatu-vaat-geom-2d-alue-maar) tai [monialueena](#laatu-vaat-geom-kokoelmat-maar).
+[Lahtotietoaineito]()-luokan objektien ```aluerajaus```-attribuutin arvon tulee kuvata aineiston maantieteellinen kattavuus joko [aluemaisena geometriana](#laatu-vaat-geom-2d-alue-maar) tai [monialueena](#laatu-vaat-geom-kokoelmat-maar).
 {% include common/clause_end.html %}
 
 ### KaavanKumoamistieto
@@ -201,28 +228,20 @@ Aikavälejä kuvaavat attribuutit voidaan antaa joko sekä alku- että loppuajan
 {% include common/clause_start.html type="req" id="laatu/vaat-kaava-paallekkaiset-aluerajaukset" %}
 Kaavatietovarastossa ei tule olla kahta [Kaava](dokumentaatio/#kaava)-luokan objektia, joiden 
 * ```laji```-attribuutin arvot ovat samat,
-* ```voimassaoloAika```-attribuutin arvojen kuvaamat aikavälit ovat sisäkkäisiä tai lomittain, ja
+* [Kaavapäätös](dokumentaatio/#kaavapäätös)-luokan ```voimassaoloAika```-attribuutin arvojen kuvaamat aikavälit ovat sisäkkäisiä tai lomittain, ja
 * ```aluerajaus```-attribuuttien kuvaavat geometriat leikaavat toisiaan tai ovat sisäkkäisiä.
 {% include common/clause_end.html %}
 
-{% include common/clause_start.html type="req" id="laatu/vaat-kaava-aluerajaus-annettava" %}
-[Kaava](dokumentaatio/#kaava)-luokan objektilla, jonka [elinkaatila](http://uri.suomi.fi/codelist/rytj/RY_KaavanElinkaaritila) on kaavaehdotus tai myöhempi (koodi 04, 05, 06, 07, 08, 09, 10, 11 tai 12) tulee olla ei-tyhjä ```aluerajaus```-attribuutin arvo. 
-{% include common/clause_end.html %}
-
-{% include common/clause_start.html type="req" id="laatu/vaat-kaava-virelletuloaika-annettava" %}
-[Kaava](dokumentaatio/#kaava)-luokan objektilla, jonka [elinkaatila](http://uri.suomi.fi/codelist/rytj/RY_KaavanElinkaaritila) on virelletullut tai myöhempi (koodi 02, 03, 04, 05, 06, 07, 08, 09, 10, 11 tai 12), tulee olla ei-tyhjä ```virelletuloAika```-attribuutin arvo. 
-{% include common/clause_end.html %}
-
 {% include common/clause_start.html type="req" id="laatu/vaat-kaava-hyvaksymistuloaika-annettava" %}
-[Kaava](dokumentaatio/#kaava)-luokan objektilla, jonka [elinkaatila](http://uri.suomi.fi/codelist/rytj/RY_KaavanElinkaaritila) on hyväksytty kaava tai myöhempi (koodi 06, 07, 08, 09, 10, 11 tai 12), tulee olla ei-tyhjä ```hyvaksymisAika```-attribuutin arvo.
+ [Kaava](dokumentaatio/#kaava)-luokan objektilla, jonka [elinkaatila](http://uri.suomi.fi/codelist/rytj/RY_KaavanElinkaaritila) on hyväksytty kaava tai myöhempi (koodi 06, 07, 08, 09, 10, 11, 12 tai 13), tulee olla [Kaavapäätös](dokumentaatio/#kaavapäätös)-luokan objektilla ei-tyhjä ```päätöspäivämäärä```-, ```päätöksenantopäivämäärä```- ja ```lainvoimaisuuspäivämäärä```-attribuutin arvo.
 {% include common/clause_end.html %}
 
 {% include common/clause_start.html type="req" id="laatu/vaat-kaava-voimassaolo-alku" %}
-[Kaava](dokumentaatio/#kaava)-luokan objektilla, jonka [elinkaatila](http://uri.suomi.fi/codelist/rytj/RY_KaavanElinkaaritila) on osittain voimassa, voimassa, tai niitä myöhempi (koodi 09, 10, 11 tai 12) tulee olla ei-tyhjä ```voimassaAika```-attribuutin alkuajanhetken arvo.
+ [Kaava](dokumentaatio/#kaava)-luokan objektilla, jonka [elinkaatila](http://uri.suomi.fi/codelist/rytj/RY_KaavanElinkaaritila) on osittain voimassa, voimassa, tai niitä myöhempi (koodi 10, 11, 12 tai 13) tulee olla [Kaavapäätös](dokumentaatio/#kaavapäätös)-luokan objektilla ei-tyhjä ```voimassaAika```-attribuutin alkuajanhetken arvo.
 {% include common/clause_end.html %}
 
 {% include common/clause_start.html type="req" id="laatu/vaat-kaava-voimassaolo-loppu" %}
-[Kaava](dokumentaatio/#kaava)-luokan objektilla, jonka [elinkaatila](http://uri.suomi.fi/codelist/rytj/RY_KaavanElinkaaritila) on  kumottu tai kumoutunut (koodi 11 tai 12), tulee olla annettu ei-tyhjä ```voimassaAika```-attribuutin loppuajanhetken arvo.
+ [Kaava](dokumentaatio/#kaava)-luokan objektilla, jonka [elinkaatila](http://uri.suomi.fi/codelist/rytj/RY_KaavanElinkaaritila) on  kumottu tai kumoutunut (koodi 12 tai 13), tulee olla annettu [Kaavapäätös](dokumentaatio/#kaavapäätös)-luokan objektilla ei-tyhjä ```voimassaAika```-attribuutin loppuajanhetken arvo.
 {% include common/clause_end.html %}
 
 ### Kaavakohde

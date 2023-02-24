@@ -123,6 +123,19 @@ kaavakohde       | planObject         | [Kaavakohde](#kaavakohde) | 0..*       |
 kaavamääräys     | generalRegulation  | [Kaavamaarays](#kaavamaarays) | 0..*   | kaavamääräys, joka koskee koko kaavan aluetta
 yleisMääräysJaSuositus    | generalRegulationAndGuidance    | [Kaavamääräysryhmä](#kaavamääräysryhmä) | 0..* | kaavan yleismääräys, yleissuositus tai niiden muodostama ryhmä, joka koskee koko kaavaan aluetta
 
+### Kaavapäätös
+
+Englanninkielinen nimi: **PlanDecision**
+
+Kuvaa käsitteen [Kaavapäätös](../../kasitemalli/#kaavapäätös), erikoistaa luokkaa [Alueidenkäyttöpäätös](https://tietomallit.ymparisto.fi/ry-yhteiset/dev/looginenmalli/dokumentaatio/#alueidenk%C3%A4ytt%C3%B6p%C3%A4%C3%A4t%C3%B6s), stereotyyppi: FeatureType (kohdetyyppi)
+
+**Assosiaatiot**
+
+Roolinimi        | Role name          | Kohde               | Kardinaliteetti | Kuvaus
+-----------------|--------------------|---------------------|-----------------|------------------------------------
+kaava        |   spatialPlan   | [Kaava](#kaava)  | 1..*        | kaava, johon kohde kuuluu
+
+
 ### Kaavaselostus
 
 Englanninkielinen nimi: **SpatialPlanCommentary**
@@ -174,6 +187,7 @@ värikoodi        | colorCode | [CharacterString](#characterstring) | 0..1 | kun
 
 Roolinimi        | Role name          | Kohde               | Kardinaliteetti | Kuvaus
 -----------------|--------------------|---------------------|-----------------|------------------------------------
+kaava        |   spatialPlan   | [Kaava](#kaava)  | 1..*        | kaava, johon kohde kuuluu
 määräysJaSuositus       | regulationAndGuidance         | [Kaavamaaraysryhmä](#kaavamaarays) | 0..*  | kaavamääräys, suositus tai niiden muodostama ryhmä, joka kohdistuu tämän kaavakohteen alueelle
 
 
