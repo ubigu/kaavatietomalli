@@ -324,7 +324,7 @@ Kaavakohteiden, kaavamääräysten ja -suositusten kumoaminen kaavan osittaisen 
 {% include common/clause_end.html %}
 
 ### Kaavan määrääminen voimaan asian aluerajauksesta poiketen
-Kaava voivaan määrätä voimaan poiketen alueidenkäyttöasian aluerajauksesta. 
+Kaava voidaan määrätä voimaan poiketen alueidenkäyttöasian aluerajauksesta. 
 
 {% include common/clause_start.html type="req" id="elinkaari/vaat-voimaantulo-aluerajauksesta-poiketen" %}
 Tallennettaessa osittain voimaan määrättävä kaava, tulee tuottavassa tietojärjestelmässä asettaa [Alueidenkäyttöasia]()- ja [Kaava](dokumentaatio/#kaava)-luokan objektien ja niiden sisältämien tietokohteiden attribuuttien arvot seuraavasti:
