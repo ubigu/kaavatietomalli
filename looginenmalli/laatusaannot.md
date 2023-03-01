@@ -207,7 +207,7 @@ Kaavatietovarastossa ei tule olla kahta [Alueidenkäyttöasia]()-luokan objektia
 {% include common/clause_end.html %}
 
 {% include common/clause_start.html type="req" id="laatu/vaat-alueidenkäyttöasia-voimassaolo-alku" %}
- [Alueidenkäyttöasia]()-luokan objektilla, jonka [elinkaatila](http://uri.suomi.fi/codelist/rytj/RY_KaavanElinkaaritila) on osittain voimassa, voimassa, tai niitä myöhempi (koodi 10, 11, 12 tai 13) tulee olla [Kaavapäätös](dokumentaatio/#kaavapäätös)-luokan objektilla ei-tyhjä ```voimassaAika```-attribuutin alkuajanhetken arvo.
+ [Alueidenkäyttöasia]()-luokan objektilla, jonka [elinkaatila](http://uri.suomi.fi/codelist/rytj/RY_KaavanElinkaaritila) on osittain voimassa, lainvoimainen, tai niitä myöhempi (koodi 10, 11, 12 tai 13) tulee olla [Kaavapäätös](dokumentaatio/#kaavapäätös)-luokan objektilla ei-tyhjä ```voimassaAika```-attribuutin alkuajanhetken arvo.
 {% include common/clause_end.html %}
 
 {% include common/clause_start.html type="req" id="laatu/vaat-alueidenkäyttöasia-voimassaolo-loppu" %}
@@ -237,7 +237,7 @@ Kaavatietovarastossa ei tule olla kahta [Kaava](dokumentaatio/#kaava)-luokan obj
 {% include common/clause_end.html %}
 
 {% include common/clause_start.html type="req" id="laatu/vaat-kaava-voimassaolo-alku" %}
- [Kaava](dokumentaatio/#kaava)-luokan objektilla, jonka [elinkaatila](http://uri.suomi.fi/codelist/rytj/RY_KaavanElinkaaritila) on osittain voimassa, voimassa, tai niitä myöhempi (koodi 10, 11, 12 tai 13) tulee olla [Kaavapäätös](dokumentaatio/#kaavapäätös)-luokan objektilla ei-tyhjä ```voimassaAika```-attribuutin alkuajanhetken arvo.
+ [Kaava](dokumentaatio/#kaava)-luokan objektilla, jonka [elinkaatila](http://uri.suomi.fi/codelist/rytj/RY_KaavanElinkaaritila) on osittain voimassa, lainvoimainen, tai niitä myöhempi (koodi 10, 11, 12 tai 13) tulee olla [Kaavapäätös](dokumentaatio/#kaavapäätös)-luokan objektilla ei-tyhjä ```voimassaAika```-attribuutin alkuajanhetken arvo.
 {% include common/clause_end.html %}
 
 {% include common/clause_start.html type="req" id="laatu/vaat-kaava-voimassaolo-loppu" %}
