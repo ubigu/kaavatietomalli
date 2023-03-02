@@ -323,8 +323,8 @@ Kaavakohteiden, kaavamääräysten ja -suositusten kumoaminen kaavan osittaisen 
 [Alueidenkäyttöasia]()-luokan tietokohteen uuden version ```aluerajaus```-attribuuttin arvo päivitetään poistamalla siitä ainoastaan kumottavia kaavamääräyksiä sisältävien kaavakohteiden geometriat vain siinä tapauksessa, että kyseinen osa kaavan alkuperäisestä alueesta halutaan jättää kokonaan kaavan suunnittelualueen ulkopuolelle. Suunnittelualueen ulkopuolelle jätettävälle alueelle ei saa kohdistua kumoamattomia kaavamääräyksiä tai -suosituksia.
 {% include common/clause_end.html %}
 
-### Kaavan määrääminen voimaan asian aluerajauksesta poiketen
-Kaava voidaan määrätä voimaan poiketen alueidenkäyttöasian aluerajauksesta. 
+### Kaavan hyväksyminen osasta alueidenkäyttöasian aluerajausta
+Kaava voidaan hyväksyä vain osasta alueidenkäyttöasian aluerajausta. 
 
 {% include common/clause_start.html type="req" id="elinkaari/vaat-voimaantulo-aluerajauksesta-poiketen" %}
 Tallennettaessa osittain voimaan määrättävä kaava, tulee tuottavassa tietojärjestelmässä asettaa [Alueidenkäyttöasia]()- ja [Kaava](dokumentaatio/#kaava)-luokan objektien ja niiden sisältämien tietokohteiden attribuuttien arvot seuraavasti:
@@ -458,7 +458,7 @@ Yllä luetellut käsittelytapahtumat tulee tallentaa samaan aikaan elinkaaritila
 {% include common/clause_end.html %}
 
 {% include common/clause_start.html type="rec" id="elinkaari/suos-nahtavillaolopaikka" %}
-Mikäli kaavaehdotus tai tai tarkistettu kaavaehdotus on nähtävillä tietyssä fyysisessä paikassa, on suositeltavaa ilmaista kyseisen paikan sijainti [Vuorovaikutustapahtuma](dokumentaatio/#vuorovaikutustapahtuma)-luokan attribuutin ```sijainti```-attribuutin avulla.
+Mikäli kaavaehdotus tai tarkistettu kaavaehdotus on nähtävillä tietyssä fyysisessä paikassa, on suositeltavaa ilmaista kyseisen paikan sijainti [Vuorovaikutustapahtuma](dokumentaatio/#vuorovaikutustapahtuma)-luokan attribuutin ```sijainti```-attribuutin avulla.
 {% include common/clause_end.html %}
 
 Huomaa, että muutos tilaan [Kumottu](http://uri.suomi.fi/codelist/rytj/RY_KaavanElinkaariTila/code/12) voi liittyvä joko käsittelytapahtuman lajiin [Kaavan kumoaminen](http://uri.suomi.fi/codelist/rytj/RY_KaavanKasittelytapahtumanLaji/code/11) tai kaavan kumoamiseen [kaavamuutokseen tai vaihekaavan](#kaavamuutokset-ja-vaihekaavat) lainvoimaiseksi tulon yhteydessä.
