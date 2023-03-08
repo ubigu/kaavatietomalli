@@ -367,13 +367,13 @@ Kumottavasta kaavasta kumotaan kaikki kaavakohteet ja niihin kohdistuvat kaavam�
 {% include common/clause_start.html type="req" id="elinkaari/vaat-kaavamuutoksen-voimaantulo" %}
  Kun kaavamuutoksesta tai vaihekaavasta tallennetaan versio, jonka ```elinkaaritila```-attribuutin arvo on [Lainvoimainen](http://uri.suomi.fi/codelist/rytj/RY_KaavanElinkaariTila/code/11), kaavatietovarasto päivittää niiden siinä kumoutuneiksi asetettujen kaavakohteiden ja kaavamääräysten, joiden ```elinkaaritila```-attribuutin arvo on [Lainvoimainen](http://uri.suomi.fi/codelist/rytj/RY_KaavanElinkaariTila/code/11), attribuutteja seuraavasti *luomatta niistä uusia versioita*:
  * ```voimassaoloAika```-attribuutin päättymisaika asetetaan samaksi kuin kaavamuutoksen tai vaihekaavan ```voimassaoloAika```-attribuutin alkamisaika.
- * ```elinkaaritila```-attribuutin arvoksi asetetaan [Kumoutunut](http://uri.suomi.fi/codelist/rytj/RY_KaavanElinkaariTila/code/12).
+ * ```elinkaaritila```-attribuutin arvoksi asetetaan [Kumoutunut](http://uri.suomi.fi/codelist/rytj/RY_KaavanElinkaariTila/code/13).
  * ```tallennusAika```-attribuutin arvoksi asetetaan ajanhetki, jolloin kaavamuutos tai vaihekaava tallennettiin kaavatietovarastoon elinkaaritilassa [Lainvoimainen](http://uri.suomi.fi/codelist/rytj/RY_KaavanElinkaariTila/code/11).
  {% include common/clause_end.html %}
 
  Kaavatietomalli ei sisällä omaa tietorakennettaan ajantasaiselle kaava-aineistolle, joka sisältää annetulta alueella tietyllä ajanhetkellä voimassaolevat kaavamääräykset (ns. ajantasakaava), huomioiden kaavamuutosten ja vaihekaavojen vaikutukset niiltä osin kun ne ovat ko. ajanhetkellä voimassa. Tällainen toiminnallisuus on kuitenkin aivan ilmeisesti yhteisen kaavatietovaraston palveluna erittäin hyödyllinen. Kaavamääräysten ```voimassaoloAika```-attribuutin arvojen avulla tällainen ajantasainen "kaavamatto" voidaan laskea mille tahansa ajanhetkelle, olettaen, että kaikki kyseisen alueen kaavat on viety tietovarastoon kaavatietomallin mukaisessa muodossa. Tietojärjestelmään on tarkoitus tuoda kaikki voimassa olevat kaavat ja kun kaikki kaavatiedot ovat tietomallimuotoisia kaavakohteen aiemmat tapahtumat ovat haettavissa.
  
- On huomattava, että pelkän ```elinkaaritila```-attribuutin avulla ei voida tietää, onko kaavakohde tai kaavamääräys tietyllä tarkasteluajanhetkellä lainvoimainen vai ei: Mikäli ajanhetkellä ```x``` voimaan tullut kaavakohde tai kaavamääräys on kumottu kaavamuutoksella, joka on tullut lainvoimaiseksi ajanhetkellä ```y```, on kaavakohteen tai kaavamääräyksen ```elinkaaritila```-attribuutin arvo muutettu arvoon [Kumottu](http://uri.suomi.fi/codelist/rytj/RY_KaavanElinkaariTila/code/11). Kyseinen kaavakohde tai kaavamääräys on tällöin kuitenkin edelleen lainvoimainen millä tahansa ajanhetkellä ```t, x <= t < y```.
+ On huomattava, että pelkän ```elinkaaritila```-attribuutin avulla ei voida tietää, onko kaavakohde tai kaavamääräys tietyllä tarkasteluajanhetkellä lainvoimainen vai ei: Mikäli ajanhetkellä ```x``` voimaan tullut kaavakohde tai kaavamääräys on kumottu kaavamuutoksella, joka on tullut lainvoimaiseksi ajanhetkellä ```y```, on kaavakohteen tai kaavamääräyksen ```elinkaaritila```-attribuutin arvo muutettu arvoon [Kumoutunut](http://uri.suomi.fi/codelist/rytj/RY_KaavanElinkaariTila/code/13). Kyseinen kaavakohde tai kaavamääräys on tällöin kuitenkin edelleen lainvoimainen millä tahansa ajanhetkellä ```t, x <= t < y```.
 
 Kunkin voimassaolevan kaavakohteen ja siihen kohdistuvan kaavamääräyksen osalta voidaan tarkastella onko ne asetettu kumottavaksi vireillä olevassa, vielä ei-lainvoimaisessa kaavamuutoksessa ja vaihekaavassa hakemalla siihen sen sisältävään kaavan kohdistuvat kaavamuutokset ja vaihekaavat, ja vertaamalla niiden ```kumoamistieto```-attribuuttien arvoja kaavakohteen ja siihen kohdistuvan kaavamäääräyksen tietoihin.
 
@@ -385,18 +385,19 @@ Alueidenkäyttöasian ja Kaavan sisältämien kaavakohteiden ja kaavamääräyst
 * [Vireilletullut](http://uri.suomi.fi/codelist/rytj/RY_KaavanElinkaariTila/code/02)
 * [Valmistelu](http://uri.suomi.fi/codelist/rytj/RY_KaavanElinkaariTila/code/03)
 * [Kaavaehdotus](http://uri.suomi.fi/codelist/rytj/RY_KaavanElinkaariTila/code/04)
-* [Tarkistettu kaavaehdotus](http://uri.suomi.fi/codelist/rytj/RY_KaavanElinkaariTila/code/05)
+* [Muutettu kaavaehdotus](http://uri.suomi.fi/codelist/rytj/RY_KaavanElinkaariTila/code/05)
 * [Hyväksytty kaava](http://uri.suomi.fi/codelist/rytj/RY_KaavanElinkaariTila/code/06)
 * [Oikaisukehotuksen alainen](http://uri.suomi.fi/codelist/rytj/RY_KaavanElinkaariTila/code/07)
 * [Valituksen alainen](http://uri.suomi.fi/codelist/rytj/RY_KaavanElinkaariTila/code/08)
 * [Oikaisukehotuksen alainen ja valituksen alainen](http://uri.suomi.fi/codelist/rytj/RY_KaavanElinkaariTila/code/09)
 * [Osittain voimassa](http://uri.suomi.fi/codelist/rytj/RY_KaavanElinkaariTila/code/10)
-* [Voimassa](http://uri.suomi.fi/codelist/rytj/RY_KaavanElinkaariTila/code/11)
+* [Voimassa ennen kaavan lainvoimaisuutta]()
 * [Lainvoimainen](http://uri.suomi.fi/codelist/rytj/RY_KaavanElinkaariTila/code/12)
-* [Kumottu](http://uri.suomi.fi/codelist/rytj/RY_KaavanElinkaariTila/code/13)
+* [Voimassa](http://uri.suomi.fi/codelist/rytj/RY_KaavanElinkaariTila/code/11)
 * [Kumoutunut](http://uri.suomi.fi/codelist/rytj/RY_KaavanElinkaariTila/code/14)
 * [Rauennut](http://uri.suomi.fi/codelist/rytj/RY_KaavanElinkaariTila/code/15)
 * [Hylätty](http://uri.suomi.fi/codelist/rytj/RY_KaavanElinkaariTila/code/16)
+* [Keskeytetty]()
 
 Kaavojen, joiden elinkaaritila on Kaavoitusaloite, Vireilletullut, Valmistelu, Kaavaehdotus, Tarkistettu kaavaehdotus, Hyväksytty kaava, Oikaisukehotuksen alainen, Valituksen alainen tai Oikaisukehotuksen alainen ja valituksen alainen, laadinta- ja päätösprosessi on kesken, eli niiden kaavamääräykset eivät (vielä) ole lainvoimaisia. Kaavat, jotka ovat elinkaaritilassa Osittain voimassa, Voimassa tai Lainvoimainen sisältävät nykyajanhetkellä rajaamallaan alueella voimassa olevia kaavamääräyksiä. Koodit Kumottu, Kumoutunut, Rauennut ja Hylätty kuvaavat kaavan tiloja, joissa olevan kaavan elinkaari on päättynyt.
 
@@ -449,11 +450,11 @@ Kun kaavasta viedään kaavatietovarastoon uusi versio, jossa sen elinkaaritila 
 Yllä luetellut käsittelytapahtumat tulee tallentaa samaan aikaan elinkaaritilaltaan muuttuneen kaavan kanssa.
 {% include common/clause_end.html %}
 
-{% include common/clause_start.html type="req" id="elinkaari/suos-ehdotuksen-nahtavilleasettaminen" %}
+{% include common/clause_start.html type="req" id="elinkaari/vaat-ehdotuksen-nahtavilleasettaminen" %}
 [Alueidenkäyttöasian]() ja [Kaavan](dokumentaatio/#kaava) ```elinkaaritila```-attribuutin arvon muuttuminen arvosta [Kaavaehdotus](http://uri.suomi.fi/codelist/rytj/RY_KaavanElinkaariTila/code/04) arvoon [Tarkistettu kaavaehdotus](http://uri.suomi.fi/codelist/rytj/RY_KaavanElinkaariTila/code/05) tai [Hyväksytty kaava](http://uri.suomi.fi/codelist/rytj/RY_KaavanElinkaariTila/code/06) vaatii, että kaavatietovarastossa on sekä [Kasittelytapahtuma](dokumentaatio/#kasittelytapahtuma) lajia [Kaavaehdotuksen nähtäville asettaminen](http://uri.suomi.fi/codelist/rytj/RY_KaavanKasittelytapahtumanLaji/code/06) että [Vuorovaikutustapahtuma](dokumentaatio/#vuorovaikutustapahtuma) lajia [Nähtävilläolo](http://uri.suomi.fi/codelist/rytj/RY_KaavanVuorovaikutustapahtumanLaji/code/01), joista molemmat viittaavat johonkin ko. kaavan aiemmista [Kaavaehdotus](http://uri.suomi.fi/codelist/rytj/RY_KaavanElinkaariTila/code/04)-tilassa olevista versioista assosiaatiolla ```liittyvaAsia```. Vuorovaikutustapahtuman attribuutin ```tapahtumaAika``` tulee kuvata aikaväli, jonka aikana kaavaehdotus on ollut nähtävillä.
 {% include common/clause_end.html %}
 
-{% include common/clause_start.html type="req" id="elinkaari/suos-tarkistetun-ehdotuksen-nahtavilleasettaminen" %}
+{% include common/clause_start.html type="req" id="elinkaari/vaat-tarkistetun-ehdotuksen-nahtavilleasettaminen" %}
 [Alueidenkäyttöasian]() ja [Kaavan](dokumentaatio/#kaava) ```elinkaaritila```-attribuutin arvon muuttuminen arvosta [Tarkistettu kaavaehdotus](http://uri.suomi.fi/codelist/rytj/RY_KaavanElinkaariTila/code/05) arvoon [Hyväksytty kaava](http://uri.suomi.fi/codelist/rytj/RY_KaavanElinkaariTila/code/06) vaatii, että kaavatietovarastossa on sekä [Kasittelytapahtuma](dokumentaatio/#kasittelytapahtuma) lajia [Tarkistetun kaavaehdotuksen nähtäville asettaminen](http://uri.suomi.fi/codelist/rytj/RY_KaavanKasittelytapahtumanLaji/code/07) että [Vuorovaikutustapahtuma](dokumentaatio/#vuorovaikutustapahtuma) lajia [Nähtävilläolo](http://uri.suomi.fi/codelist/rytj/RY_KaavanVuorovaikutustapahtumanLaji/code/01), joista molemmat viittaavat johonkin ko. kaavan aiemmista [Tarkistettu kaavaehdotus](http://uri.suomi.fi/codelist/rytj/RY_KaavanElinkaariTila/code/05)-tilassa olevista versioista assosiaatiolla ```liittyvaAsia```. Vuorovaikutustapahtuman attribuutin ```tapahtumaAika``` tulee kuvata aikaväli, jonka aikana tarkistettu kaavaehdotus on ollut nähtävillä.
 {% include common/clause_end.html %}
 
