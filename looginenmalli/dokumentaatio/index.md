@@ -282,15 +282,17 @@ Kuvaa käsitteen [Kaava](../../kasitemalli/#kaava), erikoistaa luokkaa [Versioit
 
 Nimi             | Name               | Tyyppi                       | Kardinaliteetti | Kuvaus
 -----------------|--------------------|------------------------------|-----------------|------------------------------------
-kaavalaji             | type               | [Kaavalaji](#kaavalaji)      | 1               | kaavan tyyppi
-kaavaTunnus      | planId             | [URI](#uri)                  | 1               | kaavan yksilöivä ja pysyvä tunnus
-elinkaaritila    | lifecycleStatus    | [KaavanElinkaaritila](#kaavanelinkaaritila) | 1 | kaavan elinkaaren tila
-kaavaKuvaus      | planDescription    | [CharacterString](#characterstring) |0..1| sanallinen kuvaus kaavasta
-maanalaisuus     | groundRelativePosition | [MaanalaisuudenLaji](#maanalaisuudenlaji) | 0..1 | luokittelu maanalaista ja maanpäällistä maankäyttöä koskeviin kaavoihin
-mittakaava       | scale   | [Int](#integer) | 0..1 | kertoo kaavan mittakaavan
-kaavakartta    | planMap   | [Kaavakartta](#kaavakartta) | 0..* | viittaus kaavatietomallin mukaiseen kaavatiedostoon (geotiff)
-aluerajaus    | boundary   | [Geometry](#geometry) | 0..* | kuvaa kaavan suunnittelualueen
+kaavalaji | type | [Kaavalaji](#kaavalaji)      | 1  | kaavan tyyppi
+pysyväKaavaTunnus | spatialPlanId  | [URI](#uri) | 1               | kaavan yksilöivä ja pysyvä tunnus
+kunnanKaavaTunnus | municipalSpatialPlanId | [URI](#uri) | 0..1 | kunnan antama kaavatunnus
+elinkaaritila | lifecycleStatus    | [KaavanElinkaaritila](#kaavanelinkaaritila) | 1 | kaavan elinkaaren tila
+kaavaKuvaus | planDescription    | [CharacterString](#characterstring) |0..1| sanallinen kuvaus kaavasta
+maanalaisuus | groundRelativePosition | [MaanalaisuudenLaji](#maanalaisuudenlaji) | 0..1 | luokittelu maanalaista ja maanpäällistä maankäyttöä koskeviin kaavoihin
+mittakaava | scale | [Int](#integer) | 0..1 | kertoo kaavan mittakaavan
+kaavakartta | planMap | [Kaavakartta](#kaavakartta) | 0..* | viittaus kaavatietomallin mukaiseen kaavatiedostoon (geotiff)
+aluerajaus | boundary | [Geometry](#geometry) | 0..* | kuvaa kaavan suunnittelualueen
 yleiskaavanOikeusvaikutus    | legalEffectOfLocalMasterPlan |   | [YleiskaavanOikeusvaikutukset](#yleiskaavanoikeusvaikutukset) | 0..* | luokittelu yleiskaavan oikeusvaikutuksista
+kaavanLiite    | spatialPlanAnnex   | [Liiteasiakirja](#liiteasiakirja) | 0..* | kaavaan olennaisesti kuuluva liitetty asiakirja
 kumoamistieto    | cancellationInfo   | [KaavanKumoamistieto](#kaavanakumoamistieto) | 0..* | kaava tai sen osa, jonka tämä kaava kumoaa
 
 
@@ -325,7 +327,7 @@ päätösteksti   | decisionText | [LanguageString](#languagestring) | 1 | pää
 nimi | name | [Paatoksennimi](#paatoksennimi) | 1 | päätöksen nimitys, joka kertoo mitä päätös koskee
 päättäjänLaji | typeOfDecisionMaker | [Päätöksentekija](#paatoksentekija) | 1 | päätöksen tekijä, monijäseninen toimielin tai viranhaltija
 päätösTunnus | decisionIdentifier |  [URI](#uri)  | 1 | päätöksen yksilöivä ja pysyvä, keskitetysti myönnetty tunnus.
-ohjaavasäädös | guidingStatute | [Säädösviite](#saadosviite) | 0..1 | säädös, johon päätös perustuu.
+ohjaavasäädös | guidingStatute | [Saadosviite](#saadosviite) | 0..1 | säädös, johon päätös perustuu.
 voimassaoloaika | periodOfValidity | [TM_Period](#tm_period) | 0..1 | päätöksen voimassaoloaika
 
 **Assosiaatiot**
@@ -333,6 +335,24 @@ voimassaoloaika | periodOfValidity | [TM_Period](#tm_period) | 0..1 | päätöks
 Roolinimi        | Role name          | Kohde               | Kardinaliteetti | Kuvaus
 -----------------|--------------------|---------------------|-----------------|------------------------------------
 asia        |   case   | [Alueidenkayttoasia](#alueidenkayttoasia)  | 1        | asia, johon päätös
+
+### Saadosviite
+Englanninkielinen nimi: **GuidingStatute**
+
+Stereotyyppi: DataType (tietotyyppi)
+
+**Ominaisuudet**
+
+Nimi             | Name               | Tyyppi              | Kardinaliteetti | Kuvaus
+-----------------|--------------------|---------------------|-----------------|------------------------------------
+säädöksenNimi | nameOfStatute  |  [LanguageString](#languagestring) | 1 | säädöksen nimi
+säädöksenKokoelmanNumero | documentIdentifier | [Int](#integer) | 1 | säädöskokoelman numero
+säädöksenKokoelmanVuosi  | role | [Int](#integer) | 1 | säädöskokoelman vuosi
+luku         | file  | [Int](#integer)  | 0..1 | säädöksen luku
+pykälä         | file | [Int](#integer)  | 0..1| säädöksen pykälä
+momentti         | file | [Int](#integer)  | 0..1 | säädöksen momentti
+kohta         | file | [Int](#integer)  | 0..1 | säädöksen kohta
+alakohta         | file | [CharacterString](#characterstring)  | 0..1 | säädöksen alakohta
 
 ### Kaavapäätös
 
@@ -387,7 +407,6 @@ Kuvaa käsitteen [Kaavakohde](../../kasitemalli/#kaavakohde), erikoistaa luokkaa
 Nimi             | Name               | Tyyppi                       | Kardinaliteetti | Kuvaus
 -----------------|--------------------|------------------------------|-----------------|------------------------------------
 laji             | type               | [RakennetunYmpäristönKohdelaji](#rakennetunympäristönkohdelaji) | 0..1 | varattu tulevaisuuden käyttöön
-sijainninSitovuus | bindingnessOflocation | [Sitovuuslaji](#sitovuuslaji) | 0..1       | kaavakohteeseen liitettyjen kaavamääräysten ja -suositusten sijainnin tulkinta
 elinkaaritila    | lifecycleStatus    | [KaavanElinkaaritila](#kaavanelinkaaritila) | 1 | kaavakohteen elinkaaren tila
 liittyvanLahtotietokohteenTunnus | relatedInputDatasetObjectId | [URI](#uri) | 0..*    | viittaus kaavan lähtötietoaineistoon sisältyvään tietokohteeseen, joka liittyy kaavakohteeseen. Esim. pohjavesialue
 voimassaoloaika  | validityTime       | [TM_Period](#tm_period) | 0..1        | maankäyttöasiasssa tehdyn päätöksen voimassaoloaika
@@ -517,6 +536,24 @@ Stereotyyppi: CodeList (koodisto)
 Laajennettavuus: [Ei laajennettavissa](http://inspire.ec.europa.eu/registry/extensibility/none)
 
 {% include common/codelistref.html registry="rytj" id="julkisuus" name="Asiakirjan julkisuusluokka" %}
+
+#### Paatoksennimi
+Englanninkielinen nimi: **NameOfDecision**
+
+Stereotyyppi: CodeList (koodisto)
+
+Laajennettavuus: [Ei laajennettavissa](http://inspire.ec.europa.eu/registry/extensibility/none)
+
+{% include common/codelistref.html registry="rytj" id="paatoksennimi" name="Päätöksen nimi" %}
+
+#### Päätöksentekija
+Englanninkielinen nimi: **DecisionMaker**
+
+Stereotyyppi: CodeList (koodisto)
+
+Laajennettavuus: [Ei laajennettavissa](http://inspire.ec.europa.eu/registry/extensibility/none)
+
+{% include common/codelistref.html registry="rytj" id="PaatoksenTekija" name="Päätöksentekijä" %}
 
 
 #### Kaavalaji
