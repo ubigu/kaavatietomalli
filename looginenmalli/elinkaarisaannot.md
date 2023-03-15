@@ -412,21 +412,21 @@ Kaavan elinkaaritila tallennettaessa kaava ensimmäistä kertaa kaavatietovarast
 
 {% include common/clause_start.html type="req" id="elinkaari/vaat-elinkaaritila-siirtymat" %}
 Alueidenkäyttöasian ja Kaavan ```elinkaaritila```-attribuutin arvo voi kahden sen peräkkäisen tallennusversion välillä vain seuraavilla tavoilla:
-* Tilasta ```Kaavoitusaloite``` tilaan ```Vireilletullut```, ```Valmistelu```, ```Kaavaehdotus```, ```Tarkistettu kaavaehdotus```, ```Hyväksytty kaava``` tai ```Hylätty```.
-* Tilasta ```Vireilletullut``` tilaan ```Valmistelu```, ```Kaavaehdotus```, ```Tarkistettu kaavaehdotus```, ```Hyväksytty kaava``` tai ```Rauennut```.
-* Tilasta ```Valmistelu``` tilaan ```Valmistelu```, ```Tarkistettu kaavaehdotus```, ```Hyväksytty kaava``` tai ```Rauennut```.
-* Tilasta ```Kaavaehdotus``` tilaan ```Tarkistettu kaavaehdotus```, ```Hyväksytty kaava``` tai ```Rauennut```.
-* Tilasta ```Tarkistettu kaavaehdotus``` tilaan ```Hyväksytty kaava``` tai ```Rauennut```.
-* Tilasta ```Hyväksytty kaava``` tilaan ```Oikaisukehotuksen alainen```, ```Valituksen alainen```, ```Osittain voimassa``` tai ```Lainvoimainen```.
-* Tilasta ```Oikaisukehotuksen alainen``` tilaan ```Valituksen alainen```, ```Osittain voimassa```, ```Lainvoimainen``` tai ```Rauennut```.
-* Tilasta ```Valituksen alainen``` tilaan ```Oikaisukehotuksen alainen```, ```Lainvoimainen``` tai ```Hylätty```.
-* Tilasta ```Oikeisukehoituksen alainen ja valituksen alainen``` tilaan ```Lainvoimainen```, ```Hylätty``` tai ```Rauennut```.
-* Tilasta ```Osittain voimassa``` tilaan ```Lainvoimainen``` tai ```Hylätty```.
-* Tilasta ```Lainvoimainen``` tilaan ```Kumoutunut``` tai ```Kumottu```.
-* Tilasta ```Kumottu``` ei sallittuja siirtymiä.
+* Tilasta ```Kaavoitusaloite``` tilaan ```Vireilletullut```, ```Valmistelu``` tai ```Keskeytetty```.
+* Tilasta ```Vireilletullut``` tilaan ```Valmistelu``` tai ```Keskeytetty```.
+* Tilasta ```Valmistelu``` tilaan ```Kaavaehdotus``` tai ```Keskeytetty```.
+* Tilasta ```Kaavaehdotus``` tilaan ```Muutettu kaavaehdotus```, ```Hyväksytty kaava``` tai ```Keskeytetty```.
+* Tilasta ```Muutettu kaavaehdotus``` tilaan ```Hyväksytty kaava``` tai ```Keskeytetty```.
+* Tilasta ```Hyväksytty kaava``` tilaan ```Oikaisukehotuksen alainen```, ```Valituksen alainen```, ```Osittain voimassa```, ```Lainvoimainen``` tai ```Voimassa```.
+* Tilasta ```Oikaisukehotuksen alainen``` tilaan ```Kaavaehdotus```, ```Hyväksytty kaava``` tai ```Rauennut```.
+* Tilasta ```Valituksen alainen``` tilaan ```Lainvoimainen```,  ```Voimassa``` tai ```Hylätty```.
+* Tilasta ```Oikeisukehoituksen alainen ja valituksen alainen``` tilaan ```Kaavaehdotus```, ```Hyväksytty kaava```, ```Rauennut``` tai ```Keskeytetty```.
+* Tilasta ```Osittain voimassa``` tilaan ```Lainvoimainen```, ```Voimassa``` tai ```Hylätty```.
+* Tilasta ```Lainvoimainen``` tilaan ```Voimassa``` tai ```Kumoutunut```.
 * Tilasta ```Kumoutunut``` ei sallittuja siirtymiä.
 * Tilasta ```Rauennut``` ei sallittuja siirtymiä.
 * Tilasta ```Hylätty``` ei sallittuja siirtymiä.
+* Tilasta ```Keskeytetty``` ei sallittuja siirtymiä.
 {% include common/clause_end.html %}
 
 Kaava ei ole lainvoimainen kun siitä on valitettu. Valitustilanteessa MRL 201 §:n mukaan kunnanhallitus voi valitusajan kuluttua määrätä yleis- ja asemakaavan tulemaan voimaan ennen kuin se on saanut lainvoiman kaava-alueen siltä osalta, johon valitusten tai oikaisukehotuksen ei voida katsoa kohdistuvan.  Kaava ei siis ole lainvoimainen kun kunta on määrännyt kaavan osittain voimaan. Kaava on lainvoimainen vasta kun oikeus on käsitellyt tulleet valitukset ja antanut päätöksensä ja tämä päätös on lainvoimainen.
